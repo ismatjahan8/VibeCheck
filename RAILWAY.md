@@ -25,9 +25,11 @@ Required:
 DATABASE_URL=<auto set by Railway Postgres>
 SECRET_KEY=<generate strong random>
 ENVIRONMENT=production
-CORS_ORIGINS=https://<your-frontend-domain>
+# Must match your frontend URL exactly (comma-separated for multiple):
+CORS_ORIGINS=https://vibecheck-production-b59c.up.railway.app
 REDIS_URL=<auto set by Railway Redis>   # recommended
 ```
+**If signup/login fails with CORS errors in the browser**, the backend is not allowing your frontend origin. Set `CORS_ORIGINS` to your frontend’s full URL (e.g. `https://vibecheck-production-b59c.up.railway.app`).
 
 Optional (Google OAuth):
 ```

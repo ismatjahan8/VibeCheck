@@ -19,6 +19,7 @@ def create_app() -> FastAPI:
     app = FastAPI(title="VibeCheck API", version="0.1.0")
 
     origins = [o.strip() for o in settings.CORS_ORIGINS.split(",") if o.strip()]
+    print(f"[CORS] CORS_ORIGINS={settings.CORS_ORIGINS!r} -> allowed origins={origins}")  # visible in Railway logs
     app.add_middleware(
         CORSMiddleware,
         allow_origins=origins or ["*"],
